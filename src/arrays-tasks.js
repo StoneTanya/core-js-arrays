@@ -37,8 +37,12 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  const maxLenght = Math.max(arr1.length, arr2.length);
+  const newArray = Array.from({ length: maxLenght }, (_, index) => {
+    return (arr1[index] || 0) + (arr2[index] || 0);
+  });
+  return newArray;
 }
 
 /**
@@ -136,8 +140,9 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const firstElemLenght = arr[0].length;
+  return arr.every((el) => el.length === firstElemLenght);
 }
 
 /**
@@ -151,8 +156,8 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  return arr.some((value, index) => value === index);
 }
 
 /**
